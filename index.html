@@ -6,6 +6,53 @@
     <title>CineTrack</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-950">
+    <main>
+
+        <header class="flex justify-center bg-gray-950 p-5">
+
+            <form class="w-full flex justify-center">
+                <input class="w-96 h-10 rounded-lg bg-white text-center" type="text" placeholder="chercher un movie">
+            </form>
+
+        </header>
+
+        <section class="flex justify-start bg-yellow-400 p-2">
+
+            <select class="border border-gray-950">
+                <option>Tous</option>
+                <option>Movie</option>
+                <option>Serie</option>
+            </select>
+
+        </section>
+
+        <div class="flex min-h-screen p-4 gap-4">
+            <section class="flex-1">
+                <div class="w-64 bg-gray-800 rounded-xl shadow-lg">
+                    <img src="https://image.tmdb.org/t/p/w500/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg" alt="test" class="w-full h-64 object-cover">
+                    <div class="p-3">
+                        <h2 class="text-white text-xl font-bold">NAME</h2>
+                        <p class="text-gray-400 mt-1">INFOS</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <aside class="w-64 bg-green-500 p-5 rounded-xl">
+                <p class="text-xl font-bold bg-black text-gray-500 text-center">Favorites</p>
+            </aside>
+
+        </div>
+
+        <footer>
+
+        </footer>
+
+    </main>
+
+    <script src="src/api.js"></script>
+    
 </body>
 </html>
