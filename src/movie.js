@@ -1,18 +1,20 @@
-import {movieName,img,type,description,genres,directors} from "./ui.js";
+
+import { movieName, img, type, description, genres, directors } from "./ui.js";
 
 export function cards(films) {
     const list = document.getElementById("list");
     const cardsPage = 10;
-    const firstPage = films.slice(0, cardsPage)
+    const firstPage = films.slice(0, cardsPage);
 
     list.innerHTML = firstPage.map(function (film) {
 
-        const title = movieName(film)
-        const image = img(film)
-        const filmType = type(film)
-        const filmDescription = description(film)
-        const filmDirectors = directors(film)
-        const filmGenres = genres(film)
+        const title = movieName(film);
+        const image = img(film);
+        const filmType = type(film);
+        const filmDescription = description(film);
+        const filmDirectors = directors(film);
+        const filmGenres = genres(film);
+        console.log(filmType)
 
         return `
             <div class="w-64 bg-gray-800 rounded-xl shadow-lg">
@@ -39,3 +41,30 @@ export function cards(films) {
     }).join("");
 }
 
+export function setupFilter(films) {
+
+    function filterAndSearch() {
+        const searchInput = document.getElementById("searchInput");
+        const optionFilter = document.getElementById("optionFilter");
+
+        const search = searchInput.value.toLowerCase().trim();
+        const typeFilter = optionFilter.value;
+
+        const filteredFilms = films.filter(function (film) {
+
+            const nameMatch =
+                movieName(film).toLowerCase().includes(search);
+
+            const typeMatch =
+                typeFilter === "all" || type(film) === typeFilter;
+
+            return nameMatch && typeMatch;
+        });
+
+        cards(filteredFilms);
+    }
+
+    document.getElementById("searchInput").addEventListener("input", filterAndSearch);
+
+    document.getElementById("optionFilter").addEventListener("change", filterAndSearch);
+}

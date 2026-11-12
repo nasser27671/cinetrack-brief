@@ -12,14 +12,14 @@
         <header class="flex justify-center bg-gray-950 p-5">
 
             <form class="w-full flex justify-center">
-                <input class="w-96 h-10 rounded-lg bg-white text-center" type="text" placeholder="chercher un movie">
+                <input id="searchInput" class="w-96 h-10 rounded-lg bg-white text-center" type="text" placeholder="chercher un movie">
             </form>
 
         </header>
 
         <section class="flex justify-start bg-yellow-400 p-2">
 
-            <select class="border border-gray-950">
+            <select id="optionFilter" class="border rounded-lg text-gray-800 px-4 py-2 border-gray-800">
                 <option value="all">Tous</option>
                 <option value="Movie">Movie</option>
                 <option value="Serie">Serie</option>
@@ -41,7 +41,6 @@
         <footer>
 
         </footer>
-
     </main>
 
     <script type="module" src="src/api.js"></script>

@@ -1,4 +1,5 @@
-import { cards } from "./movie.js";
+
+import { cards, setupFilter } from "./movie.js";
 
 async function affichage() {
     try {
@@ -13,6 +14,7 @@ async function affichage() {
         console.log(data);
 
         cards(data);
+        setupFilter(data);
 
     } catch (error) {
         console.log(error);
