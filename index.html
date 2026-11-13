@@ -21,13 +21,14 @@
 
             <select id="optionFilter" class="border rounded-lg text-gray-800 px-4 py-2 border-gray-800">
                 <option value="all">Tous</option>
-                <option value="Movie">Movie</option>
-                <option value="Serie">Serie</option>
+                <option value="movie">Movie</option>
+                <option value="serie">Serie</option>
             </select>
 
         </section>
 
         <div class="flex min-h-screen p-4 gap-4">
+
             <section id="list" class="flex-1 flex flex-wrap gap-4">
 
             </section>
@@ -38,9 +39,28 @@
 
         </div>
 
+
+        <div id="pagination" class="flex justify-center items-center gap-2 p-5">
+        </div>
+
+        <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
+
+            <div class="bg-gray-800 p-6 rounded-xl w-1/2">
+
+                <button id="closeModal" class="text-white text-2xl float-right">
+                    X
+                </button>
+
+                <div id="modalContent" class="text-white"></div>
+
+            </div>
+
+        </div>
+
         <footer>
 
         </footer>
+
     </main>
 
     <script type="module" src="src/api.js"></script>

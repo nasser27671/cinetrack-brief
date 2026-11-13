@@ -1,12 +1,11 @@
-
 import { movieName, img, type, description, genres, directors } from "./ui.js";
+import { setupPagination } from "./pagination.js";
 
 export function cards(films) {
-    const list = document.getElementById("list");
-    const cardsPage = 10;
-    const firstPage = films.slice(0, cardsPage);
 
-    list.innerHTML = firstPage.map(function (film) {
+    const list = document.getElementById("list");
+
+    list.innerHTML = films.map(function (film) {
 
         const title = movieName(film);
         const image = img(film);
@@ -14,10 +13,9 @@ export function cards(films) {
         const filmDescription = description(film);
         const filmDirectors = directors(film);
         const filmGenres = genres(film);
-        console.log(filmType)
 
         return `
-            <div class="w-64 bg-gray-800 rounded-xl shadow-lg">
+            <div data-id="${film.id}" class="w-64 bg-gray-800 rounded-xl shadow-lg cursor-pointer">
 
                 <img src="${image}" class="w-full h-64 object-cover">
 
@@ -41,9 +39,11 @@ export function cards(films) {
     }).join("");
 }
 
+
 export function setupFilter(films) {
 
     function filterAndSearch() {
+
         const searchInput = document.getElementById("searchInput");
         const optionFilter = document.getElementById("optionFilter");
 
@@ -61,10 +61,12 @@ export function setupFilter(films) {
             return nameMatch && typeMatch;
         });
 
-        cards(filteredFilms);
+        setupPagination(filteredFilms, cards);
     }
 
     document.getElementById("searchInput").addEventListener("input", filterAndSearch);
 
     document.getElementById("optionFilter").addEventListener("change", filterAndSearch);
+
+    setupPagination(films, cards);
 }
