@@ -1,14 +1,16 @@
-
 import { movieName, img, type, description, genres, directors } from "./ui.js";
 
 export function setupModal(films) {
 
-    const list = document.getElementById("list")
-    const modal = document.getElementById("modal")
-    const modalContent = document.getElementById("modalContent")
-    const closeModal = document.getElementById("closeModal")
+    const list = document.getElementById("list");
+    const modal = document.getElementById("modal");
+    const modalContent = document.getElementById("modalContent");
+    const closeModal = document.getElementById("closeModal");
 
     list.addEventListener("click", function (event) {
+
+        // Ne pas ouvrir le modal quand on clique sur un bouton
+        if (event.target.closest("button")) return;
 
         const card = event.target.closest("[data-id]");
 
@@ -25,17 +27,19 @@ export function setupModal(films) {
             modalContent.innerHTML = `
                 <h2 class="text-2xl font-bold mb-4">${movieName(film)}</h2>
 
-                <img src="${img(film)}" class="w-80 h-80 mb-4 rounded-lg object-cover">
+                <img src="${img(film)}" class="h-80 mb-4 rounded-lg object-cover">
 
                 <p class="mb-2">${description(film)}</p>
 
                 <p class="mb-2">Type : ${type(film)}</p>
 
-
-
                 <p class="mb-2">Directors : ${directors(film)}</p>
 
                 <p>Genres : ${genres(film)}</p>
+
+                <p class="mb-2 font-bold">Commentaire</p>
+
+                <input class="mb-2 text-black w-full h-10 font-normal">
             `;
 
             modal.classList.remove("hidden");

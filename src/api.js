@@ -1,4 +1,4 @@
-import { cards, setupFilter } from "./movie.js";
+import { cards, setupFilter, setupFavorites } from "./movie.js";
 import { setupModal } from "./modal.js";
 
 async function affichage() {
@@ -16,6 +16,8 @@ async function affichage() {
     setupFilter(data);
 
     setupModal(data);
+
+    setupFavorites(data);
 }
 
 affichage();
