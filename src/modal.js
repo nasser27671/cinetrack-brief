@@ -9,7 +9,6 @@ export function setupModal(films) {
 
     list.addEventListener("click", function (event) {
 
-        // Ne pas ouvrir le modal quand on clique sur un bouton
         if (event.target.closest("button")) return;
 
         const card = event.target.closest("[data-id]");
