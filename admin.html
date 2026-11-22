@@ -1,36 +1,59 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineTrack - Admin</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineTrack Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
-<body class="bg-gray-950">
-    <main>
-         <header class="flex justify-center bg-gray-950 p-5">
-
-        </header>
-
-        <div class="">
-<h1>Name:</h1>
-            <form>
-                <input placeholder="Name" class="mb-2">
-            </form>
-<h1>Comments::</h1>
-                        <form>
-                <input class="mb-2">
-            </form>
-<button class="bg-yellow-600">Submit</button>
-
-
-        </div>
-
-        <footer>
-
-        </footer>
+<body class="bg-gray-950 text-white p-6">
+    <header class="flex justify-between items-center mb-8">
+        <h1 class="text-yellow-400 text-3xl font-bold">CineTrack - admin</h1>
+        <a href="index.html" class="bg-yellow-400 text-black p-3 rounded-lg">Retour</a>
+    </header>
+    <main class="max-w-5xl mx-auto">
+        <form id="contentForm" class="bg-gray-800 p-6 rounded-xl">
+            <h2 class="text-2xl font-bold text-yellow-400 mb-5">Ajouter un nouveau film ou serie</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input id="title" type="text" placeholder="titre" class="p-3 rounded-lg text-black" required />
+                <select id="type" class="p-3 rounded-lg text-black" required>
+                    <option value="movie">movie</option>
+                    <option value="series">serie</option>
+                </select>
+                <input id="releaseYear" type="number" placeholder="Année de sortie" class="p-3 rounded-lg text-black" required />
+                <input id="image" type="url" placeholder="URL" class="p-3 rounded-lg text-black" required />
+                <input id="duration" type="number" placeholder="durée en minutes" class="p-3 rounded-lg text-black" />
+                <input id="seasons" type="text" placeholder="saisons" class="p-3 rounded-lg text-black" />
+                <input id="genres" type="text" placeholder="genres" class="p-3 rounded-lg text-black" required />
+                <input id="directors" type="text" placeholder="réalisateurs" class="p-3 rounded-lg text-black" required />
+                <input id="productionCountries" type="text" placeholder="pays de production" class="p-3 rounded-lg text-black" />
+            </div>
+            <textarea id="description" placeholder="description" rows="4" class="w-full p-3 rounded-lg text-black mt-4" required></textarea>
+            <p id="formMessage" class="mt-3"></p>
+            <div class="flex gap-3 mt-4">
+                <button type="submit" id="submitButton" class="bg-yellow-400 text-black p-3 rounded-lg font-bold">Ajouter</button>
+                <button type="button" id="cancelEdit" class="hidden bg-gray-600 p-3 rounded-lg">Annuler</button>
+            </div>
+        </form>
+        <section class="mt-10">
+            <h2 class="text-2xl font-bold text-yellow-400 mb-5">gestion des contenus</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="bg-gray-800">
+                            <th class="p-3">Image</th>
+                            <th class="p-3">Titre</th>
+                            <th class="p-3">Type</th>
+                            <th class="p-3">Année</th>
+                            <th class="p-3">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contentsTable"></tbody>
+                </table>
+            </div>
+            <p id="tableMessage" class="mt-4"></p>
+        </section>
     </main>
-    
+    <script type="module" src="./src/admin.js"></script>
 </body>
 </html>

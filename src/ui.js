@@ -16,9 +16,9 @@ export function description(films) {
 }
 
 export function genres(films) {
-    return films.genres;
+    return films.genres || [];
 }
 
 export function directors(films) {
-    return films.directors;
+    return films.directors || [];
 }
